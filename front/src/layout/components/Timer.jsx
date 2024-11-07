@@ -15,9 +15,11 @@ const Timer = ({ onTimeout, isRunning }) => {
         }
     }, [seconds, isRunning, onTimeout]);
 
+    const textColor = seconds <= 10 ? 'text-red-500' : 'text-gray-800';
+
     return (
         <div className="flex justify-center items-center">
-            <h1 className="text-2xl font-bold text-gray-800"> {seconds} seconds</h1>
+            <h1 className={`text-2xl font-bold ${textColor}`}> {seconds} secondes</h1>
         </div>
     );
 };
