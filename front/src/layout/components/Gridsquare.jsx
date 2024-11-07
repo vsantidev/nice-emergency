@@ -22,6 +22,7 @@ export default function GridSquare({nmb, setMap}){
                 {
                     text: "lorem2",
                     correct: false
+
                 }
             ]
         },
@@ -40,6 +41,7 @@ export default function GridSquare({nmb, setMap}){
                 {
                     text: "lorem2",
                     correct: false
+
                 }
             ]
         }
