@@ -35,27 +35,30 @@ export default function Modal({ data, display, setDisplay }) {
                 <Timer onTimeout={handleTimeout} isRunning={isRunning} />
               </div>
             </div>
-
-            <div className="absolute bottom-0 w-full">
+            <div className="absolute bottom-0 w-full flex flex-grow">
               {answered ? (
                 <div
-                  className="cursor-pointer w-full h-8 bg-red-500 text-center border-t-2 border-black text-black"
+                  className="cursor-pointer w-full h-10 bg-red-500 text-center border-t-2 border-black text-black"
                   onClick={() => setDisplay(tile)}
                 >
-                  <p>Close</p>
+                  <p>Fermer</p>
                 </div>
               ) : (
-                answers.map((answer, i) => (
-                  <div
-                    key={`${title}Answer#${i}`}
-                    className="cursor-pointer w-full h-8 bg-red-500 text-center border-t-2 border-black text-black"
-                    onClick={() => handleAnswer(answer.text)}
-                  >
-                    <p>{answer.text}</p>
-                  </div>
-                ))
+                <div className="grid grid-cols-2 grid-rows-2 gap-2 w-full">
+                  {answers.map((answer, i) => (
+                    <div
+                      key={`${title}Answer#${i}`}
+                      className="cursor-pointer bg-gray-300 rounded-lg shadow-lg text-center border-t-2 border-black text-black p-2 h-full flex items-center justify-center"
+                      onClick={() => handleAnswer(answer.text)}
+                      style={{ minHeight: '3rem' }}  // Assure une hauteur minimale
+                    >
+                      <p className="break-words text-sm leading-tight">{answer.text}</p> {/* Assure le retour à la ligne */}
+                    </div>
+                  ))}
+                </div>
               )}
             </div>
+
           </div>
         </div>
       ) : null}
