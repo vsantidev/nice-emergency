@@ -18,7 +18,7 @@ const Timer = ({ onTimeout, isRunning, seconds, setSeconds }) => {
 
     return (
         <div className="flex justify-center items-center my-4">
-            <h1 className={`text-2xl font-bold ${textColor}`}> {seconds} secondes</h1>
+            <h1 className={`text-xl font-bold ${textColor}`}> {seconds} secondes</h1>
         </div>
     );
 };
