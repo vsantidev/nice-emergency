@@ -4,7 +4,7 @@ export default function Modal({data, display, setDisplay}) {
   
     const [answered, setAnswered] = useState(false);
   
-    const {id, title, description, success, fail, answers} = data
+    const {tile, title, description, success, fail, answers} = data
     const textRef = useRef(null)
 
 
@@ -33,7 +33,7 @@ export default function Modal({data, display, setDisplay}) {
                         (
                             <div 
                             className="cursor-pointer w-full h-8 bg-red-500 text-center border-t-2 border-black"
-                            onClick={() => setDisplay(id)}
+                            onClick={() => setDisplay(tile)}
                             >
                                 <p>Close</p>
                             </div>

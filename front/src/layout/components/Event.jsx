@@ -6,9 +6,9 @@ export default function Event({data = {}, resolveEvent}){
     const [open, setOpen] = useState(false);
 
 
-    function handleModal(id) {
+    function handleModal(tile) {
         setOpen(!open)
-        resolveEvent(id)
+        resolveEvent(tile)
         
     }
 
