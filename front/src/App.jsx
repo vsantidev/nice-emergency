@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import map1 from './assets/testPic.jpg'
-import map2 from './assets/menton.jpg'
+import map1 from './assets/Images/map/Nice1.png'
+import map2 from './assets/Images/map/Nice2.png'
 import Gridsquare from './layout/components/Gridsquare'
 
 function App() {
   const [map, setMap] = useState(0);
-  
+
   let img = [map1, map2]
-  
-  
+
+
   return (
     <div className="flex justify-center items-center h-[100vh] flex-col">
       <h1 className='header mt-28 mb-10 text-7xl font-bold tracking-wider'>Nice <span className='mx-4'></span>Emergency</h1>
@@ -17,7 +17,7 @@ function App() {
         <Gridsquare setMap={setMap} nmb={60}/>
       </div>
     </div>
-    
+
   )
 }
 
