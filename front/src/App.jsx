@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import map1 from './assets/Images/map/Nice1.png'
 import map2 from './assets/Images/map/Nice2.png'
+import map_main from './assets/Images/map/NiceMain.png'
 import Gridsquare from './layout/components/Gridsquare'
 
 function App() {
   const [map, setMap] = useState(0);
 
-  let img = [map1, map2]
+  let img = [map_main, map1, map2]
 
 
   return (
