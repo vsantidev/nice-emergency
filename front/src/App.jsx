@@ -1,14 +1,20 @@
+import { useEffect, useState } from 'react'
 import './App.css'
+import map1 from './assets/testPic.jpg'
+import map2 from './assets/menton.jpg'
 import Gridsquare from './layout/components/Gridsquare'
 
 function App() {
-
+  const [map, setMap] = useState(0);
+  
+  let img = [map1, map2]
+  
   
   return (
     <div className="flex justify-center items-center h-[100vh] flex-col">
       <h1 className='header mt-28 mb-10 text-7xl font-bold tracking-wider'>Nice <span className='mx-4'></span>Emergency</h1>
-      <div className='gameContainer relative w-[90%] max-w-[100%] h-[80%]  grid grid-cols-12'>
-        <Gridsquare nmb={60}/>
+      <div style={{backgroundImage: `url(${img[map]})`}} className='gameContainer relative w-[90%] max-w-[100%] h-[80%] grid grid-cols-12'>
+        <Gridsquare setMap={setMap} nmb={60}/>
       </div>
     </div>
     
