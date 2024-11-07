@@ -38,12 +38,10 @@ export default function Modal({ data, display, setDisplay }) {
         <div className="w-full h-full absolute flex justify-center">
           <div className={'w-1/2 bg-white border-0 shadow rounded relative mt-7 z-10 flex'}>
             <div className="w-full mt-8 relative">
-              <p className="text-center font-bold text-black">{title}</p>
-              <div className="mx-8 mt-8">
-                <p ref={textRef} className="text-black">{description}</p>
-              </div>
-              <div className="absolute top-0 right-0 m-4">
-                <Timer seconds={seconds} setSeconds={setSeconds} onTimeout={handleTimeout} isRunning={isRunning} />
+              <p className="text-center font-bold text-black text-3xl">{title}</p>
+              <Timer seconds={seconds} setSeconds={setSeconds} onTimeout={handleTimeout} isRunning={isRunning} />
+              <div className="mx-8">
+                <p ref={textRef} className="text-black text-center">{description}</p>
               </div>
             </div>
 
@@ -59,7 +57,7 @@ export default function Modal({ data, display, setDisplay }) {
                 answers.map((answer, i) => (
                   <div
                     key={`${title}Answer#${i}`}
-                    className="cursor-pointer w-full h-8 bg-red-500 text-center border-t-2 border-black text-black"
+                    className="cursor-pointer w-full min-h-8 bg-red-500 border-t-2 border-black text-black flex text-center justify-center items-center"
                     onClick={() => handleAnswer(answer.text)}
                   >
                     <p>{answer.text}</p>
