@@ -15,12 +15,12 @@ export default function GridSquare({nmb}){
             fail: "too bad",
             answers: [
                 {
-                text: "lorem",
-                correct: "corrects"
+                    text: "lorem",
+                    correct: true
                 },
                 {
                     text: "lorem2",
-                    correct: "false"
+                    correct: false
                 }
             ]
         }
