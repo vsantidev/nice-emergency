@@ -12,11 +12,10 @@ export default function GridSquare({ nmb }) {
         fetch('/questions/arrierepays.json')
     .then(response => response.json())
     .then(data => {
-        // Associe le nom de la catégorie à chaque question
         const allQuestions = data.categories.flatMap(category =>
             category.questions.map(question => ({
                 ...question,
-                title: category.nom // Ajoute le nom de la catégorie comme titre
+                title: category.nom
             }))
         );
         setEventTopData(allQuestions);
@@ -29,7 +28,7 @@ fetch('/questions/littoral.json')
         const allQuestions = data.categories.flatMap(category =>
             category.questions.map(question => ({
                 ...question,
-                title: category.nom // Utilise le nom de la catégorie comme titre
+                title: category.nom
             }))
         );
         setEventBottomData(allQuestions);
@@ -39,7 +38,6 @@ fetch('/questions/littoral.json')
 
     const getRandomQuestion = (questions) => {
         const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
-        console.log("Selected random question:", randomQuestion); // Ajout 4 : voir la question aléatoire choisie
         return {
             id: randomQuestion.id,
             title: randomQuestion.title,
@@ -56,14 +54,13 @@ fetch('/questions/littoral.json')
     };
 
     const resolveEvent = (tile) => {
-        console.log(`Resolving event at tile ${tile}`); // Ajout 5 : voir quand un event est résolu
         setEvents(prevEvents => {
             const updatedEvents = [...prevEvents];
             updatedEvents[tile] = {};
             return updatedEvents;
         });
         setActiveEvent(null);
-        setTimeout(spawnEvent, 3000); // Spawn a new event after 3 seconds
+        setTimeout(spawnEvent, 3000); // 3 secondes
     };
 
     const spawnEvent = () => {
@@ -71,20 +68,16 @@ fetch('/questions/littoral.json')
             const randomTile = Math.floor(Math.random() * nmb);
             const isTop = randomTile < nmb / 2;
             const newEvent = isTop ? getRandomQuestion(eventTopData) : getRandomQuestion(eventBottomData);
-            console.log(`Spawning event at tile ${randomTile}:`, newEvent); // Ajout 6 : voir les détails du nouvel event
             setActiveEvent({ ...newEvent, tile: randomTile });
             setEvents(prevEvents => {
                 const updatedEvents = [...prevEvents];
                 updatedEvents[randomTile] = newEvent;
                 return updatedEvents;
             });
-        } else {
-            console.log("Not enough data to spawn event."); // Ajout 7 : voir si les données sont prêtes pour spawn
         }
     };
 
     useEffect(() => {
-        console.log("Checking if we can spawn the first event...");
         if (eventTopData.length > 0 && eventBottomData.length > 0) {
             spawnEvent(); // Spawn the first event
         }
