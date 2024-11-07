@@ -5,7 +5,6 @@ export default function GridSquare({ nmb }) {
     const [events, setEvents] = useState(Array.from({ length: nmb }, () => ({})));
     const [eventTopData, setEventTopData] = useState([]);
     const [eventBottomData, setEventBottomData] = useState([]);
-    const [activeEvent, setActiveEvent] = useState(null);
 
 
     useEffect(() => {
@@ -60,7 +59,6 @@ fetch('/questions/littoral.json')
             updatedEvents[tile] = {};
             return updatedEvents;
         });
-        setActiveEvent(null);
         setTimeout(spawnEvent, 3000); // 3 secondes
     };
 
@@ -69,7 +67,6 @@ fetch('/questions/littoral.json')
             const randomTile = Math.floor(Math.random() * nmb);
             const isTop = randomTile < nmb / 2;
             const newEvent = isTop ? getRandomQuestion(eventTopData) : getRandomQuestion(eventBottomData);
-            setActiveEvent({ ...newEvent, tile: randomTile });
             setEvents(prevEvents => {
                 const updatedEvents = [...prevEvents];
                 updatedEvents[randomTile] = newEvent;
