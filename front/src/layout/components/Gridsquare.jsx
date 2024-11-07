@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import Event from './Event'
 
-export default function GridSquare({nmb}){
+export default function GridSquare({nmb, setMap}){
 
     const [events, setEvents] = useState(Array(nmb).fill({}));
+    const [eventsCount, setEventsCount] = useState(0);
 
     let event = [
         {
@@ -15,12 +16,30 @@ export default function GridSquare({nmb}){
             fail: "too bad",
             answers: [
                 {
-                text: "lorem",
-                correct: "corrects"
+                    text: "lorem",
+                    correct: true
                 },
                 {
                     text: "lorem2",
-                    correct: "false"
+                    correct: false
+                }
+            ]
+        },
+        {
+            id: 1,
+            title: "Innondation",
+            description: "lorem ipsum",
+            tile: 12,
+            success: "Well done",
+            fail: "too bad",
+            answers: [
+                {
+                    text: "lorem",
+                    correct: true
+                },
+                {
+                    text: "lorem2",
+                    correct: false
                 }
             ]
         }
@@ -31,16 +50,24 @@ export default function GridSquare({nmb}){
             setEvents((prevEvents) =>
             {
                 const updatedEvents = [...prevEvents];
-                updatedEvents[2] = event[0];
+                updatedEvents[event[0].tile] = event[0];
                 return updatedEvents;
             }
             );
+            setTimeout(() => {
+                setEvents((prevEvents) =>
+                {
+                    const updatedEvents = [...prevEvents];
+                    updatedEvents[event[1].tile] = event[1];
+                    return updatedEvents;
+                }
+                );
+            }, 2000);
         }, 2000);
         
     },[]);
 
     function resolveEvent(tile) {
-        console.log(tile)
         setEvents((prevEvents) =>
             {
             const updatedEvents = [...prevEvents];
@@ -48,7 +75,15 @@ export default function GridSquare({nmb}){
             return updatedEvents;
             }
         )
-        console.log(event[0])
+        if (eventsCount == 1) {
+            console.log('2')
+
+            setMap(prev => prev + 1)
+            setEventsCount(0)
+        }else {
+            console.log('1')
+            setEventsCount(prev => prev + 1)
+        }
     }
 
     let content = []
