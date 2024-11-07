@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react';
-
-
 export default function Rule() {
     return (
         <>
-        <section className="py-28 bg-gray-100" id="rules">
+        <section className="py-28" id="rules">
         <div className="container mx-auto px-6 text-gray-600" > 
             <h2 className="text-4xl font-bold text-center text-gray-800 mb-12" >
                 Règles du jeu

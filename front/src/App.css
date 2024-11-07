@@ -8,6 +8,7 @@
 }
 
 .gameContainer {
+  background-image: url('./assets/Images/map/NiceMain.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
