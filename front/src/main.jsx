@@ -4,11 +4,14 @@ import './index.css'
 import App from './App.jsx'
 import Header from './layout/Header.jsx'
 import Footer from './layout/footer.jsx'
+import { ScoreProvider } from './Providers/ScoreProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Header />
-    <App />
+    <ScoreProvider>
+      <App />
+    </ScoreProvider>
     <Footer/>
   </StrictMode>,
 )
