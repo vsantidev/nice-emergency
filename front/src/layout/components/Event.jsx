@@ -6,7 +6,6 @@ export default function Event({ data = {}, resolveEvent }) {
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
-        console.log('Event data:', data);
     }, [data]);
 
     function handleModal() {
