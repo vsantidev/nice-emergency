@@ -39,15 +39,16 @@ export default function GridSquare({nmb}){
         
     },[]);
 
-    function resolveEvent(id) {
-        console.log(id)
+    function resolveEvent(tile) {
+        console.log(tile)
         setEvents((prevEvents) =>
             {
             const updatedEvents = [...prevEvents];
-            updatedEvents[id] = {};
+            updatedEvents[tile] = {};
             return updatedEvents;
             }
         )
+        console.log(event[0])
     }
 
     let content = []
