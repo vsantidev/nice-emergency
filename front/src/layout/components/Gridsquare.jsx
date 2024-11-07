@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Event from './Event'
 
-export default function GridSquare({nmb, setMap}){
+export default function GridSquare({nmb}){
 
     const [events, setEvents] = useState(Array(nmb).fill({}));
     const [eventsCount, setEventsCount] = useState(0);
@@ -77,13 +77,10 @@ export default function GridSquare({nmb, setMap}){
             return updatedEvents;
             }
         )
+        // TO DO : CHANGE THE NMB FOR CONDITION
         if (eventsCount == 1) {
-            console.log('2')
-
-            setMap(prev => prev + 1)
             setEventsCount(0)
         }else {
-            console.log('1')
             setEventsCount(prev => prev + 1)
         }
     }
