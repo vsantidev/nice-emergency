@@ -49,10 +49,10 @@ export default function Modal({ data, display, setDisplay }) {
               </div>
             </div>
 
-            <div className={`absolute bottom-0 w-full lg:h-[40%] p-4 ${answered ? '' : 'grid grid-cols-2 gap-2'}`}>
+            <div className={`absolute bottom-0 w-full lg:h-[40%] p-4 ${answered ? 'flex items-end' : 'grid grid-cols-2 gap-2'}`}>
               {answered ? (
                 <div
-                  className="cursor-pointer w-96 m-auto rounded h-8 bg-red-500 flex justify-center items-center text-white mb-4 font-bold"
+                  className="cursor-pointer w-52 lg:w-96 mx-auto rounded h-8 bg-red-500 flex justify-center items-center text-white mb-4 font-bold"
                   onClick={() => setDisplay(tile)}
                 >
                   <p>Close</p>
