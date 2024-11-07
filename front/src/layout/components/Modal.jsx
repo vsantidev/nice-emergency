@@ -1,20 +1,31 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Timer from './Timer';
+import { useScore } from "../../Providers/ScoreProvider";
 
 
 export default function Modal({ data, display, setDisplay }) {
 
   const [answered, setAnswered] = useState(false);
   const [isRunning, setIsRunning] = useState(true);
+  const [seconds, setSeconds] = useState(30);
+
 
   const { tile, title, description, success, fail, answers, correctAnswer } = data;
   const textRef = useRef(null);
+
+  const {setScore} = useScore()
+
 
   function handleAnswer(selectedAnswer) {
     setAnswered(true);
     setIsRunning(false);
     const isCorrect = selectedAnswer === correctAnswer;
     textRef.current.innerText = isCorrect ? success : fail;
+    if (isCorrect)
+    {
+      setScore(prev => prev + (seconds * 50))
+    }
+    setSeconds(30)
   }
 
   function handleTimeout() {
@@ -32,7 +43,7 @@ export default function Modal({ data, display, setDisplay }) {
                 <p ref={textRef} className="text-black">{description}</p>
               </div>
               <div className="absolute top-0 right-0 m-4">
-                <Timer onTimeout={handleTimeout} isRunning={isRunning} />
+                <Timer seconds={seconds} setSeconds={setSeconds} onTimeout={handleTimeout} isRunning={isRunning} />
               </div>
             </div>
 

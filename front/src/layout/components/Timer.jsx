@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Timer = ({ onTimeout, isRunning }) => {
-    const [seconds, setSeconds] = useState(30);
+const Timer = ({ onTimeout, isRunning, seconds, setSeconds }) => {
 
     useEffect(() => {
         if (isRunning && seconds > 0) {
