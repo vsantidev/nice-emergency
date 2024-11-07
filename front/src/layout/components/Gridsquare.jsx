@@ -7,6 +7,7 @@ export default function GridSquare({ nmb }) {
     const [eventBottomData, setEventBottomData] = useState([]);
     const [activeEvent, setActiveEvent] = useState(null);
 
+
     useEffect(() => {
         console.log("Fetching JSON data...");
         fetch('/questions/arrierepays.json')
@@ -82,6 +83,7 @@ fetch('/questions/littoral.json')
             spawnEvent(); // Spawn the first event
         }
     }, [eventTopData, eventBottomData]);
+
 
     let content = [];
     for (let i = 0; i < nmb; i++) {

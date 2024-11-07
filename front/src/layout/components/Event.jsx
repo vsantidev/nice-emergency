@@ -1,5 +1,7 @@
+
 import { useState, useEffect } from "react"
 import Warning from '../../assets/warning-sign-svgrepo-com.svg'
+
 import Modal from "./Modal";
 
 export default function Event({ data = {}, resolveEvent }) {
