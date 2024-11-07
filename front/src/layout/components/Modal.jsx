@@ -15,6 +15,8 @@ export default function Modal({ data, display, setDisplay }) {
 
   const {setScore} = useScore()
 
+  let colors = ['bg-red-500', 'bg-blue-500', 'bg-orange-500', 'bg-green-500']
+
 
   function handleAnswer(selectedAnswer) {
     setAnswered(true);
@@ -24,31 +26,33 @@ export default function Modal({ data, display, setDisplay }) {
     if (isCorrect)
     {
       setScore(prev => prev + (seconds * 50))
+    }else {
+      setScore(prev => prev - (seconds * 25))
     }
-    setSeconds(30)
   }
 
   function handleTimeout() {
     setDisplay(tile);
+    setSeconds(30)
   }
 
   return (
     <>
       {display ? (
         <div className="w-full h-full absolute flex justify-center">
-          <div className={'w-1/2 bg-white border-0 shadow rounded relative mt-7 z-10 flex'}>
-            <div className="w-full mt-8 relative">
+          <div className={'w-1/2 bg-white border-0 shadow rounded-lg relative my-4 z-10 flex'}>
+            <div className="w-full mt-4 relative">
               <p className="text-center font-bold text-black text-3xl">{title}</p>
               <Timer seconds={seconds} setSeconds={setSeconds} onTimeout={handleTimeout} isRunning={isRunning} />
-              <div className="mx-8">
-                <p ref={textRef} className="text-black text-center">{description}</p>
+              <div className="mx-8 lg:h-[30%] flex justify-center items-center">
+                <p ref={textRef} className="text-black lg:mx-20">{description}</p>
               </div>
             </div>
 
-            <div className="absolute bottom-0 w-full">
+            <div className={`absolute bottom-0 w-full lg:h-[40%] p-4 ${answered ? '' : 'grid grid-cols-2 gap-2'}`}>
               {answered ? (
                 <div
-                  className="cursor-pointer w-full h-8 bg-red-500 text-center border-t-2 border-black text-black"
+                  className="cursor-pointer w-96 m-auto rounded h-8 bg-red-500 flex justify-center items-center text-white mb-4 font-bold"
                   onClick={() => setDisplay(tile)}
                 >
                   <p>Close</p>
@@ -57,7 +61,7 @@ export default function Modal({ data, display, setDisplay }) {
                 answers.map((answer, i) => (
                   <div
                     key={`${title}Answer#${i}`}
-                    className="cursor-pointer w-full min-h-8 bg-red-500 border-t-2 border-black text-black flex text-center justify-center items-center"
+                    className={`${colors[i]} rounded font-bold cursor-pointer w-full min-h-8 p-1 text-white flex text-center justify-center items-center`}
                     onClick={() => handleAnswer(answer.text)}
                   >
                     <p>{answer.text}</p>
