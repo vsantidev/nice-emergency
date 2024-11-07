@@ -1,4 +1,11 @@
 export default function BtnRule() {
+
+    function handleScroll() {
+        window.scrollTo({
+            top: document.getElementById("rules").offsetTop,
+            behavior: "smooth"
+          });
+    }
     return (
         <>
         <section>          
@@ -10,16 +17,13 @@ export default function BtnRule() {
                     Aide ta métrople à avancer dans la grille à la découverte des risques majeurs.
                 </h2>
                 <div className='flex justify-center'>
-                    <p className="text-2xl text-center text-gray-600 mb-12">
-                        Prêt à explorer et relever des défis e en t'amusant !
-                    </p>
-                    <a href="#rules" className=" transition-colors delay-50 duration-300 text-2xl italic
+                    <p className="text-2xl text-gray-600 mb-12">
+                        Prêt à explorer et relever des défis en t'amusant !
+                        <span onClick={() => handleScroll()} className="cursor-pointer hover:text-blue-500 delay-50 duration-300 text-2xl italic
                         text-blue-900
-                        text-center
                         ml-2
-                        hover:animate-none">
-                            (Voir les régles du jeu !)
-                    </a>
+                        ">(Voir les régles du jeu !)</span>
+                    </p>
                 </div>
 
             </div>
