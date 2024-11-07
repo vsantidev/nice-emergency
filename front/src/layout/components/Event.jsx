@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react"
-import Warning from '../../assets/warning-sign-svgrepo-com.svg'
+import Warning from '../../assets/warning-sign.svg'
 
 import Modal from "./Modal";
 
