@@ -22,26 +22,26 @@ export default function Rule() {
             {/* <!-- 3 - Validation de la réponse --> */}
             <div className="border-2 space-y-2 p-2 rounded-md mt-4">
                 <h3 className="text-2x1 font-bold">Gagner des points :</h3>
-                <p>Chaque bonne réponse te donne 1 point !</p>
-                <p>Si tu te trompes, pas de points, mais tu recevras une petite explication pour mieux comprendre.</p>
+                <p>Chaque bonne réponse te donne des points !</p>
+                <p>Si tu te trompes, tu en perds, mais tu recevras une petite explication pour mieux comprendre.</p>
             </div>
 
             {/* <!-- E4 - Révision --> */}
-            <div className="border-2 space-y-2 p-2 rounded-md mt-4">
+            {/* <div className="border-2 space-y-2 p-2 rounded-md mt-4">
                 <h3 className="text-2x1 font-bold">Aide :</h3>
                 <p>Tu as 3 vies pour t'aider : utilise-les pour obtenir un indice ou réduire le nombre de réponses possibles quand tu hésites.</p>
-            </div>
+            </div> */}
 
             {/* <!-- 5 - Fin du jeu --> */}
             <div className="border-2 space-y-2 p-2 rounded-md mt-4">
                 <h3 className="text-2x1 font-bold">Fin du jeu :</h3>
-                <p>Le jeu se termine si tu n'as plus de vies ou si tu as répondu à toutes les questions. À la fin, tu verras ton score et dans quelle catégorie tu te trouves !</p>
+                <p>Le jeu se termine si tu as répondu à toutes les questions. À la fin, tu verras ton score !</p>
             </div>
             {/* <!-- 6 - Récompenses --> */}
-            <div className="border-2 space-y-2 p-2 rounded-md mt-4">
+            {/* <div className="border-2 space-y-2 p-2 rounded-md mt-4">
                 <h3 className="text-2x1 font-bold">Récompenses :</h3>
                 <p>Pour chaque catégorie maitrisée, le joueur obtiendra un badge montrant sa réussite.</p> 
-            </div>
+            </div> */}
         </div>
       </section>
 
