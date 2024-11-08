@@ -43,8 +43,9 @@ fetch('/questions/littoral.json')
             title: randomQuestion.title,
             description: randomQuestion.question,
             tile: 2,
-            success: "C'est la bonne réponse !",
-            fail: "Ce n'est pas la bonne réponse.",
+            success: `C'est la bonne réponse ! \n \n ${randomQuestion.explication}`,
+            fail: `Ce n'est pas la bonne réponse. \n \n ${randomQuestion.explication}`,
+            explication: randomQuestion.explication,
             answers: randomQuestion.options.map(option => ({
                 text: option,
                 correct: option === randomQuestion.réponse ? "correct" : "false"
