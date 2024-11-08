@@ -18,11 +18,12 @@ export default function Modal({ data, display, setDisplay }) {
   let colors = ['bg-red-500', 'bg-blue-500', 'bg-orange-500', 'bg-green-500']
 
 
+
   function handleAnswer(selectedAnswer) {
     setAnswered(true);
     setIsRunning(false);
     const isCorrect = selectedAnswer === correctAnswer;
-    textRef.current.innerText = isCorrect ? success : fail;
+    textRef.current.innerText = isCorrect ? success : `${fail} \n\n La bonne réponse : \n${correctAnswer}`;
     if (isCorrect)
     {
       setScore(prev => prev + (seconds * 50))
