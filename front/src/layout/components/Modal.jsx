@@ -13,7 +13,7 @@ export default function Modal({ data, display, setDisplay }) {
   const { tile, title, description, success, fail, answers, correctAnswer } = data;
   const textRef = useRef(null);
 
-  const {setScore} = useScore()
+  const {score,setScore} = useScore()
 
   let colors = ['bg-red-500', 'bg-blue-500', 'bg-orange-500', 'bg-green-500']
 
@@ -28,7 +28,13 @@ export default function Modal({ data, display, setDisplay }) {
     {
       setScore(prev => prev + (seconds * 50))
     }else {
-      setScore(prev => prev - (seconds * 25))
+      let malus = seconds * 25
+      if (malus > score)
+      {
+        setScore(0)
+      }else {
+        setScore(prev => prev - malus)
+      }
     }
   }
 
