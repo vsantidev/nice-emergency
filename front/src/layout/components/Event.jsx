@@ -17,7 +17,7 @@ export default function Event({ data = {}, resolveEvent }) {
 
     return (
         <>
-            <div className="border-2 border-black flex justify-center items-center relative">
+            <div className="flex justify-center items-center relative">
                 {
                     data.title ? 
                     (
